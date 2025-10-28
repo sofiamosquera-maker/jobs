@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hola-mundo-job
+  namespace: sofia-mosquera-dev
+spec:
+  completitions: 10
+  parallelism: 3
+  template:
+    spec:
+      containers:
+        - name: hola-mundo
+          image: busybox:latest
+          command: ["/bin/sh", "-c"]
+          args:
+          - |
+            sleep 60
+            echo "hola mundo job"
+      restartPolicy: Never
+  backoffLimit: 2  # Número de reintentos en caso de fallo
