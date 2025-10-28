@@ -28,4 +28,4 @@ jobs:
       - name: Deploy files
         run: |
           oc project sofia-mosquera-dev
-          oc apply -f job.yaml
+          oc apply -f cronjob.yaml
